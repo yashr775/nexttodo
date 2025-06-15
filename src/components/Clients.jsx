@@ -3,7 +3,7 @@
 import { createContext, useContext, useState } from "react";
 
 
-const Context = createContext({ user: {} });
+export const Context = createContext({ user: {} });
 
 export const ContextProvider = ({ children }) => {
 
