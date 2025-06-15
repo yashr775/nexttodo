@@ -28,4 +28,5 @@ export const LogoutBtn = () => {
 
     return <button className="btn" onClick={logoutHandeler}>Logout</button>
 
-} 
+}
+

@@ -1,7 +1,10 @@
-
+import Form from "../app/addTodoForm"
 
 export default function Home() {
   return (
-    <div>page</div>
+    <div className="container">
+      <Form />
+      <section className="todosContainer"></section>
+    </div>
   );
 }

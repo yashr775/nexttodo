@@ -42,4 +42,9 @@ const page = () => {
     );
 };
 
+const metadata = {
+    title: "Login page",
+
+}
+
 export default page;
