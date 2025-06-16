@@ -37,6 +37,7 @@ const page = () => {
                     <p>OR</p>
                     <Link href={"/register"}>New User</Link>
                 </form>
+
             </section>
         </div>
     );
@@ -44,6 +45,7 @@ const page = () => {
 
 const metadata = {
     title: "Login page",
+    description: "Login to continue"
 
 }
 

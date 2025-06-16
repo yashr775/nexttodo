@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
+import { Todoitem } from '@/components/Servercomponents';
 
 const addTodoForm = () => {
 
@@ -31,7 +32,9 @@ const addTodoForm = () => {
                     />
                     <button type="submit">Add Task</button>
                 </form>
+                <Todoitem title={"todo"} description={"Do it Quickly"} />
             </section>
+
         </div>
     )
 }
