@@ -1,18 +1,13 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react'
-import { Todoitem } from '@/components/Servercomponents';
+import React, { useState } from "react";
+import { Todoitem } from "@/components/Servercomponents";
 
 const addTodoForm = () => {
-
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
 
-
-    const submitHandler = () => {
-
-    }
-
+    const submitHandler = () => { };
 
     return (
         <div className="login">
@@ -32,11 +27,15 @@ const addTodoForm = () => {
                     />
                     <button type="submit">Add Task</button>
                 </form>
-                <Todoitem title={"todo"} description={"Do it Quickly"} />
+                <Todoitem
+                    title={"todo"}
+                    description={"Do it Quickly"}
+                    id={"sample id"}
+                    completed={true}
+                />
             </section>
-
         </div>
-    )
-}
+    );
+};
 
-export default addTodoForm
+export default addTodoForm;
