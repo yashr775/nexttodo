@@ -1,3 +1,6 @@
+import mongoose from "mongoose";
+
 export const connectDB = async () => {
-    await mongoose.connect(process.env.MONGO_URI, { dbName: "NetTodo" });
+    const { connection } = await mongoose.connect(process.env.MONGO_URI, { dbName: "NextTodo" });
+    console.log(`Connected to mongoDB on host ${connection.host}`)
 };
