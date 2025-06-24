@@ -1,5 +1,6 @@
 import { serialize } from "cookie";
 import mongoose from "mongoose";
+import jwt from "jsonwebtoken"
 
 export const connectDB = async () => {
     const { connection } = await mongoose.connect(process.env.MONGO_URI, {
@@ -20,3 +21,10 @@ export const cookieSetter = (res, token, set) => {
 
     res.status(201).json({ sucess: true, message: "User created successfully" });
 };
+
+
+export const generateToken = (_id) => {
+
+    return jwt.sign({ _id }, process.env.JWT_SECRET)
+
+}
