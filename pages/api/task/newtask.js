@@ -1,11 +1,10 @@
 import { connectDB } from "@/utils/features";
 import { Task } from "@/models/task";
+import { errorHandler } from "../../../middlewares/error";
 
 const handler = async (req, res) => {
     if (req.method !== "POST") {
-        return res
-            .status(400)
-            .json({ success: false, message: "Only post request allowed" });
+        return errorHandler(res, 400, "Only post request allowed")
     }
 
     const { title, description } = req.body;
