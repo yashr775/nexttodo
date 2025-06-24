@@ -18,8 +18,6 @@ export const cookieSetter = (res, token, set) => {
             maAge: set ? 1000 * 60 * 60 * 24 * 15 : 0,
         })
     );
-
-    res.status(201).json({ sucess: true, message: "User created successfully" });
 };
 
 
