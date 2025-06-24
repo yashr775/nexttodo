@@ -1,6 +1,7 @@
 import { connectDB } from "@/utils/features";
-import { Task } from "@/models/task";
 import { errorHandler } from "../../../middlewares/error";
+import { Task } from "@/models/task";
+
 
 const handler = async (req, res) => {
     if (req.method !== "POST") {
@@ -8,7 +9,7 @@ const handler = async (req, res) => {
     }
 
     const { title, description } = req.body;
-
+    await connectDB();
     await Task.create({
         title,
         description,
@@ -16,7 +17,7 @@ const handler = async (req, res) => {
     });
 
     res.json({ success: true, message: "Task created" });
-    await connectDB();
+
 };
 
 export default handler;
