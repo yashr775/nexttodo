@@ -29,14 +29,15 @@ export const generateToken = (_id) => {
 }
 
 
+
+
 export const checkAuth = async (req) => {
-    const cookie = req.headers.cookie
+    const cookie = req.headers.cookie;
     if (!cookie) return null;
 
     const token = cookie.split("=")[1];
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET)
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    return await User.findById(decoded._id)
-
-} 
+    return await User.findById(decoded._id);
+};
