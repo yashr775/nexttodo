@@ -24,7 +24,7 @@ const handler = asyncError(async (req, res) => {
     const token = generateToken(data._id);
     cookieSetter(res, token, true);
 
-    res.status(200).send({ sucess: true, message: "Registered successfully" });
+    res.status(200).send({ success: true, message: "Registered successfully", user });
 });
 
 export default handler;
