@@ -54,7 +54,6 @@ export const LogoutBtn = () => {
 };
 
 export const TodoButton = ({ id, completed }) => {
-
     const router = useRouter();
 
     const deleteHandler = async (id) => {
@@ -65,16 +64,34 @@ export const TodoButton = ({ id, completed }) => {
 
             const data = await res.json();
             if (!data.success) return toast.error(data.message);
-            toast.success(data.message)
+            toast.success(data.message);
             router.refresh();
         } catch (error) {
             console.log(error.message);
         }
     };
 
+    const updateHandler = async (id) => {
+        try {
+            const res = await fetch(`/api/task/${id}`, {
+                method: "PUT",
+            });
+            const data = await res.json();
+            if (!data.success) return toast.error(data.message);
+            toast.success(data.message);
+            router.refresh();
+        } catch (error) {
+            return toast.error(error);
+        }
+    };
+
     return (
         <>
-            <input type="checkbox" checked={completed}></input>
+            <input
+                type="checkbox"
+                checked={completed}
+                onChange={() => updateHandler(id)}
+            ></input>
             <button className="btn" onClick={() => deleteHandler(id)}>
                 Delete
             </button>
