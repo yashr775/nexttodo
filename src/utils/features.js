@@ -1,6 +1,7 @@
 import { serialize } from "cookie";
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken"
+import cookie from "cookie";
 import { User } from "@/models/user";
 
 export const connectDB = async () => {
@@ -13,10 +14,10 @@ export const connectDB = async () => {
 export const cookieSetter = (res, token, set) => {
     res.setHeader(
         "Set-Cookie",
-        serialize("token", token, {
+        serialize("token", set ? token : "", {
             path: "/",
             httpOnly: true,
-            maAge: set ? 1000 * 60 * 60 * 24 * 15 : 0,
+            maxAge: set ? 1000 * 60 * 60 * 24 * 15 : 0,
         })
     );
 };
@@ -32,12 +33,12 @@ export const generateToken = (_id) => {
 
 
 export const checkAuth = async (req) => {
-    const cookie = req.headers.cookie;
+    const cookies = cookie.parse(req.headers.cookie || "");
+    const cookie1 = cookies.token;
+
     if (!cookie) return null;
 
-    const token = cookie.split("=")[1];
-
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(cookie1, process.env.JWT_SECRET);
 
     return await User.findById(decoded._id);
 };

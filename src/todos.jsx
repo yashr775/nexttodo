@@ -4,10 +4,10 @@ import { Todoitem } from "./components/Servercomponents";
 
 const fetchTodo = async (token) => {
     try {
-        const res = await fetch(`${process.env.URL}/api/mytask`, {
+        const res = await fetch(`${process.env.URL}/api/task/mytask`, {
             cache: "no-cache",
             headers: {
-                cookie: `token-${token}`,
+                cookie: `token=${token}`,
             },
         });
 
@@ -22,7 +22,8 @@ const fetchTodo = async (token) => {
 };
 
 const todos = async () => {
-    const token = cookies();
+    const cookieStore = await cookies();
+    const token = cookieStore.get("token")?.value || "";
     const tasks = await fetchTodo(token);
 
     return (

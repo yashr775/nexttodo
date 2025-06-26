@@ -25,7 +25,7 @@ export const ContextProvider = ({ children }) => {
 };
 
 export const LogoutBtn = () => {
-    const { user } = useContext(Context);
+    const { user, setUser } = useContext(Context);
 
     const logoutHandeler = async () => {
         try {
@@ -39,7 +39,7 @@ export const LogoutBtn = () => {
 
             toast.success(data.message);
         } catch (error) {
-            return toast.error(error);
+            return toast.error(error.message);
         }
     };
 

@@ -11,7 +11,9 @@ const handler = async (req, res) => {
     if (!title || !description)
         return errorHandler(res, 400, "Enter all credentials");
 
-    const user = checkAuth(req);
+    const user = await checkAuth(req);
+
+
 
     if (!user) return errorHandler(res, 400, "User does not exist");
 
