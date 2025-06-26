@@ -7,7 +7,10 @@ const addTodoForm = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
 
-    const submitHandler = () => { };
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+    };
 
     return (
         <div className="login">
