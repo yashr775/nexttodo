@@ -1,5 +1,5 @@
 import { checkAuth, connectDB } from "@/utils/features";
-import { errorHandler } from "../../../middlewares/error";
+import { asyncError, errorHandler } from "../../../middlewares/error";
 import { Task } from "@/models/task";
 
 const handler = asyncError(async (req, res) => {

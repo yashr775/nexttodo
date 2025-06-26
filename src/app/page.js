@@ -1,3 +1,4 @@
+import React, { Suspense } from "react";
 import Form from "../app/addTodoForm"
 import Todos from "../todos"
 
@@ -6,7 +7,9 @@ export default function Home() {
     <div className="container">
       <Form />
 
-      <section className="todosContainer"><Todos /></section>
+      <Suspense fallback={<div>loading...</div>}>
+        <Todos />
+      </Suspense>
     </div>
   );
 }

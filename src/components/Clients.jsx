@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export const Context = createContext({ user: {} });
 
@@ -53,8 +54,22 @@ export const LogoutBtn = () => {
 };
 
 export const TodoButton = ({ id, completed }) => {
-    const deleteHandler = (id) => {
-        alert(`Deleting ${id}`);
+
+    const router = useRouter();
+
+    const deleteHandler = async (id) => {
+        try {
+            const res = await fetch(`/api/task/${id}`, {
+                method: "DELETE",
+            });
+
+            const data = await res.json();
+            if (!data.success) return toast.error(data.message);
+            toast.success(data.message)
+            router.refresh();
+        } catch (error) {
+            console.log(error.message);
+        }
     };
 
     return (
