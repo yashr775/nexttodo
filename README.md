@@ -1,5 +1,6 @@
   
 This is a beginner-friendly Next.js project created to explore the core features of Next.js, with SCSS used for styling.
+Post Link:- https://x.com/yashraj14738725/status/1938457365101097437
 
 Login page
 ![Nexttodo1](https://github.com/user-attachments/assets/254f25a7-3300-469e-8adf-2f69534cee3f)
