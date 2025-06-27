@@ -9,3 +9,14 @@ Home Page
 
 RegisterPage
 ![NextTodo3](https://github.com/user-attachments/assets/a6d9926d-26cd-4efa-8cc9-f58dbb1ecda9)
+
+
+How to set this up 
+
+Clone this locally set environment variables and run nom run dev must have mongodb , atlas and nextjs installes
+
+ENV variables
+
+MONGO_URI = 
+JWT_SECRET = T
+URL = 
