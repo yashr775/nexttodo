@@ -18,5 +18,5 @@ Clone this locally set environment variables and run nom run dev must have mongo
 ENV variables
 
 MONGO_URI = 
-JWT_SECRET = T
+JWT_SECRET = 
 URL = 
